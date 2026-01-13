@@ -1,0 +1,346 @@
+﻿/* ===== Reset & Base ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    cursor: none;
+    scroll-snap-type: y mandatory;
+    color: #1E1B18;
+    background: #F7F1E1;
+}
+
+/* ===== Panels ===== */
+.panel {
+    min-height: 70vh;
+    padding: 80px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    scroll-snap-align: start;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ===== 4 Color Theme ===== */
+.roast {
+    background: #5C3A21;
+    color: #fff;
+    text-align: center;
+}
+
+.brew-imgs {
+    background: #A67C52;
+    color: #fff;
+    text-align: center;
+}
+
+.menu {
+    background: #C69C6D;
+    color: #1E1B18;
+    text-align: center;
+}
+
+.about,
+.insta-strip,
+.testimonials {
+    background: #EDE0D4;
+    color: #1E1B18;
+    text-align: center;
+}
+
+.location {
+    background: #FFF8F0;
+    color: #1E1B18;
+    text-align: center;
+}
+
+.pause {
+    background: #5C3A21;
+    color: #fff;
+    text-align: center;
+}
+
+/* ===== Typography ===== */
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+}
+
+h1 {
+    font-size: 6rem;
+    letter-spacing: 14px;
+}
+
+h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.2rem;
+    line-height: 1.7;
+}
+
+/* ===== Cursor ===== */
+#cursor {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    background: radial-gradient(
+        circle,
+        rgba(255,225,180,0.9) 0%,
+        rgba(198,156,109,0.6) 40%,
+        rgba(92,58,33,0.2) 70%,
+        transparent 100%
+    );
+    box-shadow:
+        0 0 15px rgba(198,156,109,0.6),
+        0 0 35px rgba(92,58,33,0.4);
+    mix-blend-mode: screen;
+    transition: transform 0.08s ease-out;
+}
+
+/* ===== Scroll Reveal ===== */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease;
+    font-style: italic;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===== Hero Section ===== */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.hero-slide {
+    position: absolute;
+    inset: 0;
+    display: none;
+}
+
+.hero-slide.active {
+    display: block;
+}
+
+.hero-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.6);
+}
+
+.slide-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 40px 60px;
+    border-radius: 20px;
+    text-align: center;
+    color: #fff;
+    background: linear-gradient(
+        rgba(0,0,0,0.35),
+        rgba(0,0,0,0.35)
+    );
+    backdrop-filter: blur(4px);
+}
+
+.slide-text h1 {
+    font-size: 4rem;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.hero-buttons .btn {
+    padding: 12px 32px;
+    border-radius: 50px;
+    background: #C69C6D;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all .3s;
+}
+
+.hero-buttons .btn:hover {
+    background: #5C3A21;
+    transform: scale(1.05);
+}
+
+/* ===== Menu Cards ===== */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
+    margin-top: 40px;
+    perspective: 1000px;
+}
+
+.menu-card {
+    height: 300px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform .8s;
+    box-shadow: 0 18px 35px rgba(92,58,33,.25);
+}
+
+.menu-card:hover {
+    transform: rotateY(180deg);
+}
+
+.menu-front,
+.menu-back {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-front {
+    background: linear-gradient(145deg, #8B5E3C, #5C3A21);
+    color: #fff;
+    font-size: 1.6rem;
+    letter-spacing: 2px;
+}
+
+.menu-back {
+    background: #FDF7ED;
+    transform: rotateY(180deg);
+    padding: 20px;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.menu-back h4 {
+    margin-bottom: 10px;
+    color: #5C3A21;
+}
+
+.menu-back ul {
+    list-style: none;
+}
+
+.menu-back li {
+    padding: 6px 10px;
+    margin-bottom: 6px;
+    background: rgba(200,161,101,0.08);
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+/* ===== Instagram Strip ===== */
+.insta-scroll {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+}
+
+/* ===== Testimonials ===== */
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    max-width: 1100px;
+    margin: 40px auto 0;
+}
+
+.testimonial-card {
+    background: #F7F1E1;
+    padding: 30px;
+    border-radius: 20px;
+    position: relative;
+    box-shadow: 0 15px 30px rgba(92,58,33,0.15);
+    transition: .4s;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-6px);
+}
+
+.testimonial-card::before {
+    content: "❝";
+    position: absolute;
+    top: 12px;
+    left: 18px;
+    font-size: 60px;
+    color: rgba(198,156,109,.25);
+}
+
+.testimonial-card i {
+    color: #C69C6D;
+    font-size: 24px;
+}
+
+.testimonial-card span {
+    display: block;
+    margin-top: 15px;
+    color: #5C3A21;
+}
+
+/* ===== Location ===== */
+.map-wrap iframe {
+    width: 100%;
+    height: 320px;
+    border-radius: 15px;
+}
+
+/* ===== Footer ===== */
+.contact-icons {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.contact-icons img {
+    width: 30px;
+    transition: transform .3s;
+}
+
+.contact-icons img:hover {
+    transform: scale(1.2);
+}
+
+.footer-note {
+    margin-top: 20px;
+    font-style: italic;
+    letter-spacing: 2px;
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 768px) {
+
+    h1 { font-size: 3rem; letter-spacing: 6px; }
+    h2 { font-size: 2.2rem; }
+
+    .panel { padding: 60px 25px; }
+
+    .slide-text { padding: 25px; }
+
+    .menu-card { height: 260px; }
+}
