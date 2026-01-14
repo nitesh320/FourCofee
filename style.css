@@ -7,17 +7,10 @@
 
 body {
     font-family: 'Roboto', sans-serif;
+    cursor: none;
+    scroll-snap-type: y mandatory;
     color: #1E1B18;
     background: #F7F1E1;
-    overflow-x: hidden;
-}
-
-/* Disable snap on mobile */
-@media (max-width: 768px) {
-    body {
-        scroll-snap-type: none;
-        cursor: default;
-    }
 }
 
 /* ===== Panels ===== */
@@ -130,7 +123,7 @@ p {
 .hero-section {
     position: relative;
     width: 100%;
-    height: 100svh;
+    height: 100vh;
     overflow: hidden;
 }
 
@@ -168,10 +161,10 @@ p {
 }
 
 .slide-text h1 {
-    font-size: clamp(2rem, 6vw, 4rem);
+    font-size: 4rem;
     letter-spacing: 4px;
+    margin-bottom: 20px;
 }
-
 
 .hero-buttons {
     display: flex;
@@ -183,27 +176,17 @@ p {
 .hero-buttons .btn {
     padding: 12px 32px;
     border-radius: 50px;
-    background: #C69C6D;   /* ORIGINAL COLOR */
+    background: #C69C6D;
     color: #fff;
     text-decoration: none;
     font-weight: bold;
-    font-size: 15px;
-    transition: all .3s ease;
+    transition: all .3s;
 }
 
-/* Desktop hover */
 .hero-buttons .btn:hover {
     background: #5C3A21;
     transform: scale(1.05);
 }
-
-/* Mobile – no hover jump */
-@media (max-width: 768px) {
-    .hero-buttons .btn:hover {
-        transform: none;
-    }
-}
-
 
 /* ===== Menu Cards ===== */
 .menu-grid {
@@ -272,34 +255,10 @@ p {
 /* ===== Instagram Strip ===== */
 .insta-scroll {
     display: flex;
-    gap: 16px;
+    gap: 20px;
     overflow-x: auto;
-    scroll-snap-type: x mandatory;
     padding-bottom: 10px;
 }
-
-.instagram-media {
-    min-width: 85%;
-    scroll-snap-align: center;
-}
-
-@media (max-width: 768px) {
-    .panel {
-        padding: 50px 20px;
-        min-height: auto;
-    }
-}
-@media (max-width: 768px) {
-    .map-wrap iframe {
-        height: 260px;
-    }
-}
-@media (max-width: 768px) {
-    #cursor {
-        display: none;
-    }
-}
-
 
 /* ===== Testimonials ===== */
 .testimonial-grid {
@@ -384,15 +343,4 @@ p {
     .slide-text { padding: 25px; }
 
     .menu-card { height: 260px; }
-}
-
-.menu-card.flipped {
-    transform: rotateY(180deg);
-}
-
-/* Disable hover flip on touch devices */
-@media (max-width: 768px) {
-    .menu-card:hover {
-        transform: none;
-    }
 }
